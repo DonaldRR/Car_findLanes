@@ -17,7 +17,7 @@ Original image has 3 channels, i.e. RGB. To make the problem easy, we change 3-c
 
 **2. Blurring**
 
-[grayScale]: ./writeup_images/grays_cale.jpg "Grayscale"
+[grayScale]: ./writeup_images/gray_scale.jpg "Grayscale"
 [blur]: ./writeup_images/blur.jpg "Blur"
 [edges]: ./writeup_images/edges.jpg "Edges"
 [mask]: ./writeup_images/mask.jpg "Mask"

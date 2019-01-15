@@ -42,6 +42,32 @@ The first picture below indicat the trapezoid I used with bold white lines. The 
 
 In an image, each pixel is denoted with its position X and Y and color. But color is not used in this part, so only discuss X and Y alone. It is easy to say which pixels form a line approximately with eyes, while it is not easy for computer only dealing with Xs and Ys. So we transform the image space to Hough space, in which, each pixel is denoted as a line. And one important feature is that, pixels in a line in image space intersect in Hough space. Each intersection means at least 2 pixels in a line. Thus, we use this trick to find lines in edges.
 
+![alt text][rawLine]
+
+The green lines drawn are lines of edges.
+
+
+### Reflection
+
+### 1. Modification on draw_lines() function
+
+The final objective is finding the direction of two lanes line, i.e. drawing two long lines in the left and right. In the original solution, we get lines of edges, while including noises. To eliminate some lines, I use thresholding on the slope of lines. Here are rules for thresholding process.
+
+- Lines lie on the left ROI have negative slope, otherwise positive. Others are eliminated.
+- Absolute value of slope of all lines have to be greater than 0.5, i.e. at least 30 degrees to the horizon.
+
+After that, we still get a bunch of lines, we need form a long line based on them. The strategy here is fitting a line with linear regression given Xs and Ys of endpoints of lines. And train two linear regreesors on both left and right lines. Then drawing fitted lines on the image. 
+
+There is one more detail in such fitting process. Even after thresholding process, noise still exist. It can confuse the fitting process. To reduce the noise, longer lines get higher sample weights and shorter ones get lower weights. Thus the regressor would focus more on long lines which are more likely lines of lanes.
+
+The blue lines below are resulting lane lines.
+
+![alt text][line]
+
+### 2. Potential shortcomings with current pipeline
+
+
+### 3. Possible improvements to pipeline
 
 
 [grayScale]: ./writeup_images/gray_scale.jpg "Grayscale"
@@ -49,53 +75,7 @@ In an image, each pixel is denoted with its position X and Y and color. But colo
 [edges]: ./writeup_images/edges.jpg "Edges"
 [mask]: ./writeup_images/mask.jpg "Mask"
 [masked]: ./writeup_images/masked.jpg "Masked"
+[rawLine]: ./writeup_images/raw_line.jpg "RawLine"
 [line]: ./writeup_images/line.jpg "Line"
 [final]: ./writeup_images/final_extend.jpg "Final"
-
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
----
-
-**Finding Lane Lines on the Road**
-
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
-
-
-[//]: # (Image References)
-
-
-
----
-
-### Reflection
-
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
-
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
-
-
-### 2. Identify potential shortcomings with your current pipeline
-
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
-
-### 3. Suggest possible improvements to your pipeline
-
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
-
 

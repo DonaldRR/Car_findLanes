@@ -64,7 +64,12 @@ The blue lines below are resulting lane lines.
 
 ![alt text][line]
 
+Combined with original image, it gives: 
+
+![alt text][final]
+
 ### 2. Potential shortcomings with current pipeline
+
 
 
 ### 3. Possible improvements to pipeline

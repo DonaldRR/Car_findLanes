@@ -1,5 +1,30 @@
 # **Finding Lane Lines on the Road** 
 
+## Goals
+
+* Make a pipeline that finds lane lines on the road
+* Reflect on work in a written report
+
+### Pipelines
+
+My pipelines consist 5 steps. Each step will be manifestated below.
+
+**1. Color Conversion**
+
+Original image has 3 channels, i.e. RGB. To make the problem easy, we change 3-channel images to 1 channel, grayscale image (shown below).
+
+![alt text][grayScale]
+
+**2. Blurring**
+
+[grayScale]: ./writeup_images/grays_cale.jpg "Grayscale"
+[blur]: ./writeup_images/blur.jpg "Blur"
+[edges]: ./writeup_images/edges.jpg "Edges"
+[mask]: ./writeup_images/mask.jpg "Mask"
+[masked]: ./writeup_images/masked.jpg "Masked"
+[line]: ./writeup_images/line.jpg "Line"
+[final]: ./writeup_images/final_extend.jpg "Final"
+
 ## Writeup Template
 
 ### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
@@ -15,7 +40,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
+
 
 ---
 
@@ -45,3 +70,5 @@ Another shortcoming could be ...
 A possible improvement would be to ...
 
 Another potential improvement could be to ...
+
+

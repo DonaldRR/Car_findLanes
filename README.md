@@ -7,5 +7,8 @@ When we drive, we see lane lines and keep our cars between them. To drive a car 
 
 ## Run
 
-Run `.set_up`
+To run code in jupyter notebook P1.ipynb, there are the dependencies under Python 3.6.
 
++ matplotlib
++ sklearn
++ moviepy

@@ -7,8 +7,18 @@ When we drive, we see lane lines and keep our cars between them. To drive a car 
 
 ## Run
 
-To run code in jupyter notebook P1.ipynb, there are the dependencies under Python 3.6.
+To run code in jupyter notebook P1.ipynb, make sure you have installed following dependencies under Python 3.6.
 
 + matplotlib
 + sklearn
 + moviepy
++ python-opencv
++ numpy
+
+## Input and Outputs
+
+Click [here](https://github.com/DonaldRR/Car_findLanes/tree/master/test_videos) for input videos and [another here](https://github.com/DonaldRR/Car_findLanes/tree/master/test_videos_output) for output videos.
+
+## Documentation
+
+Detailed mechanism and how it works refers to [writeup.md](https://github.com/DonaldRR/Car_findLanes/blob/master/writeup.md).

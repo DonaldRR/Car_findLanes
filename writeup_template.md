@@ -84,6 +84,15 @@ Only few short green lines is detected on the left yellow lane line, however, nu
 
 ### 3. Possible improvements to pipeline
 
++ Masking
+
+Despite clearing out area outside trapezoid, area between two lane lines are no necessary in this task. Here I can fill this triangular area black before finding lines.
+
++ Black out lines
+
+It's intuitively that lines having small slopes are not lane lines. Here I draw those lines black and then detect lines of resulting image.
+
+
 
 [grayScale]: ./writeup_images/gray_scale.jpg "Grayscale"
 [blur]: ./writeup_images/blur.jpg "Blur"

@@ -70,9 +70,28 @@ Combined with original image, it gives:
 
 ### 2. Potential shortcomings with current pipeline
 
+The first shortcoming is SHADE on lane road can introduce much noise. That can be shown with picture below:
 
+![alt text][shortcom1]
+
+In this image, green lines indicate lines of edges and red lines are final lane lines. It's clearly that, lots of noise are taken into account, as green lines in shade are considered. 
+
+The second shortcoming is BRIGHT lane road makes gradient of color so low that edges of lane line is hard to detect, as shown below.
+
+![alt text][shortcom2]
+
+Only few short green lines is detected on the left yellow lane line, however, number of lines from the shade is much larger than that. Even loosing the thresholding in Canny() function which allows more edges to be considered, more noise is also included.
 
 ### 3. Possible improvements to pipeline
+
++ Masking
+
+Despite clearing out area outside trapezoid, area between two lane lines are no necessary in this task. Here I can fill this triangular area black before finding lines.
+
++ Black out lines
+
+It's intuitively that lines having small slopes are not lane lines. Here I draw those lines black and then detect lines of resulting image.
+
 
 
 [grayScale]: ./writeup_images/gray_scale.jpg "Grayscale"
@@ -83,4 +102,6 @@ Combined with original image, it gives:
 [rawLine]: ./writeup_images/raw_line.jpg "RawLine"
 [line]: ./writeup_images/line.jpg "Line"
 [final]: ./writeup_images/final_extend.jpg "Final"
+[shortcom1]: ./writeup_images/shortcom1.png "ShortComing1"
+[shortcom2]: ./writeup_images/shortcom2.png "ShortComing2"
 
